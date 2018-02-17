@@ -1,0 +1,24 @@
+# --- !Ups
+CREATE TABLE companies (
+    id VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE accounts (
+    id VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    company_id VARCHAR(255) NOT NULL,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_accounts FOREIGN KEY (company_id) REFERENCES companies (id) ON DELETE CASCADE,
+    PRIMARY KEY (id)
+);
+
+# --- !Downs
+DROP TABLE companies;
+DROP TABLE accounts;

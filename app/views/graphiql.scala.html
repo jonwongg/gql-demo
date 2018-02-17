@@ -1,0 +1,49 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>This is GraphiQL</title>
+
+    <link rel="stylesheet" media="screen" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="//cdnjs.cloudflare.com/ajax/libs/graphiql/0.9.3/graphiql.min.css">
+    <link rel="stylesheet" media="screen" href="//unpkg.com/graphiql-workspace@@1.0.4/graphiql-workspace.css">
+
+    <script src="//cdn.jsdelivr.net/react/15.4.2/react.min.js"></script>
+    <script src="//cdn.jsdelivr.net/react/15.4.2/react-dom.min.js"></script>
+    <script src="//unpkg.com/graphiql-workspace@@1.0.4/graphiql-workspace.min.js"></script>
+
+</head>
+<body>
+    <div id="workspace" class="graphiql-workspace"></div>
+
+    <script>
+        var config = new graphiqlWorkspace.AppConfig("graphiql", {
+            defaultHeaders: [
+                {
+                    name: "Authorization",
+                    value: ""
+                }
+            ],
+            defaultUrl: window.location.origin,
+            defaultQuery: "# Welcome to GraphiQL\n" +
+                          "#\n" +
+                          "# GraphiQL is an in-browser IDE for writing, validating, and\n" +
+                          "# testing GraphQL queries.\n" +
+                          "#\n" +
+                          "# Type queries into this side of the screen, and you will\n" +
+                          "# see intelligent typeaheads aware of the current GraphQL type schema and\n" +
+                          "# live syntax and validation errors highlighted within the text.\n\n" +
+                          "query {\n  me {\n    id\n    firstName\n    lastName\n    email\n    company {\n      name\n    }\n  }\n}"
+        });
+
+        ReactDOM.render(
+            React.createElement(graphiqlWorkspace.GraphiQLWorkspace, {config: config}),
+            document.getElementById('workspace')
+        );
+
+    </script>
+</body>
+</html>

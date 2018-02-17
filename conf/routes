@@ -1,0 +1,2 @@
+GET         /             controllers.ApplicationController.graphiql
+POST        /             controllers.ApplicationController.query

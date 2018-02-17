@@ -1,0 +1,25 @@
+# Scala
+*.class
+*.log
+
+# SBT
+.cache/
+.history/
+.lib
+dist
+target
+lib_managed
+src_managed
+project/project
+project/target
+project/.sbtserver*
+
+# IntelliJ
+*.iml
+*.ipr
+*.iws
+.idea
+out
+
+# OSX
+.DS_Store
